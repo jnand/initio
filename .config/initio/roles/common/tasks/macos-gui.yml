@@ -22,6 +22,7 @@
     - signal
     - veracrypt
     - vlc
+  ignore_errors: yes
 
 - name: GPG Suite
   block:
