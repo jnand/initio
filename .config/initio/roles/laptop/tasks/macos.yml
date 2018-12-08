@@ -44,8 +44,10 @@
 
 - name: Todoist
   block:
-    - command: mas install 585829637
-    - command: dockutil --add /Applications/Todoist.app --after 'Calendar'
+    - name: Install Todoist
+      command: mas install 585829637
+    - name: Position Todoist in Dock
+      command: dockutil --add /Applications/Todoist.app --after 'Calendar'
   tags: [nobuild, home, personal]
 
 - command: mas install {{item}}
