@@ -56,10 +56,16 @@
     - 1055511498 # Day One
   tags: [nobuild, home, personal]
 
-- homebrew_cask:
+- name: Unfi controller
+  homebrew_cask:
+    name: 'ubiquiti-unifi-controller'
+    state: present
+  tags: [home, personal]
+
+- name: Media apps
+  homebrew_cask:
     name: [
-            'transmission',
-            'ubiquiti-unifi-controller',
+            'transmission',            
             'backblaze',
             'hermes',
             'plex-media-player',
