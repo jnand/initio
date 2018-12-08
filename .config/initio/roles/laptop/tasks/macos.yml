@@ -55,33 +55,34 @@
   tags: [nobuild, home, personal]
 
 - homebrew_cask:
-    name: "{{item}}"
+    name: [
+            'transmission',
+            'ubiquiti-unifi-controller',
+            'backblaze',
+            'hermes',
+            'plex-media-player',
+            'musicbrainz-picard',
+            'marshallofsound-google-play-music-player'
+          ]
     state: present
-  with_items:
-    - transmission
-    - ubiquiti-unifi-controller
-    - backblaze
-    - hermes
-    - plex-media-player
-    - musicbrainz-picard
-    - marshallofsound-google-play-music-player
   tags: [home, personal]
 
 - name: Office & productivity
   block:
     - homebrew_cask:
-        name: "{{item}}"
+        name: [
+                'bettertouchtool', 
+                'typora', 
+                'rstudio', 
+                'toggl'
+              ]
         state: present
-      with_items:
-        - bettertouchtool
-        - typora
-        - rstudio
-        - toggl
+
     - homebrew_cask:
-        name: "{{item}}"
+        name: [
+                'microsoft-office'
+              ]
         state: present
-      with_items:
-        - microsoft-office
       ignore_errors: yes
       tags: [bigdl, blockblock]
   tags: [nobuild]

@@ -6,30 +6,30 @@
 - name: Development tools
   block:    
     - homebrew_cask:
-        name: "{{item}}"
+        name: [
+                'gitkraken',
+                'vagrant',
+                'vagrant-manager',
+                'kitematic'
+              ]
         state: present
-      with_items:
-        - gitkraken
-        - vagrant
-        - vagrant-manager
-        - kitematic
     - homebrew_cask: 
-        name: "{{item}}"
-        state: present
-      with_items:
-        - wireshark
-        - docker  
-        - postgres
-        - virtualbox # cant automate without deactiving SIP which needs a reboot
+        name: [
+                'wireshark',
+                'docker',  
+                'postgres',
+                'virtualbox' # cant automate without deactiving SIP which needs a reboot
+              ]
+        state: present        
       ignore_errors: yes  
       tags: [blockblock]
     - homebrew_cask:
-        name: "{{item}}"
+        name: [
+                'rubymine',
+                'pycharm',
+                'vmware-fusion',
+              ]
         state: present
-      with_items:
-        - rubymine
-        - pycharm
-        - vmware-fusion
       tags: [nobuild]
     - command: mas install {{item}}
       with_items:

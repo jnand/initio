@@ -1,22 +1,23 @@
 ---
 
 - homebrew:
-    name: "{{item}}"
+    name: [
+      'git', 
+      # - htop # see: https://github.com/Homebrew/homebrew-core/pull/22479
+      'mas', 
+      'mackup', 
+      'md5deep', 
+      'python3', 
+      'rmtrash', 
+      'tmux', 
+      'tree', 
+      'vim', 
+      'neovim', 
+      'wakeonlan', 
+      'wget'
+    ]
+
     state: present
-  with_items:
-    - git 
-    # - htop # see: https://github.com/Homebrew/homebrew-core/pull/22479
-    - mas
-    - mackup
-    - md5deep
-    - python3
-    - rmtrash
-    - tmux
-    - tree
-    - vim
-    - neovim
-    - wakeonlan
-    - wget
 
 - name: OSXFuse
   block:
@@ -24,10 +25,8 @@
       command: "echo none"
       become: yes
     - homebrew_cask:
-        name: "{{item}}"
-        state: present
-      with_items:
-        - osxfuse
+        name: ['osxfuse']
+        state: present      
 
 - name: Override system curl
   block:

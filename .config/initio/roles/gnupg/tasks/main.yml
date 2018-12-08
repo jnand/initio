@@ -7,12 +7,12 @@
 - name: MacOS GnuPG 
   block:
     - homebrew:
-        name: "{{item}}"
+        name: [
+                'gnupg',
+                'pinentry',
+                'pinentry-mac'
+              ]
         state: present
-      with_items:
-        - gnupg
-        - pinentry
-        - pinentry-mac
   when: distro.macos
 
 

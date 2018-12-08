@@ -37,7 +37,7 @@
 # Python
 #
 - pip:
-    requirements: "'{{role_path}}/files/python3-requirements.txt'"
+    requirements: "{{role_path}}/files/python3-requirements.txt"
     executable: pip3
 
 
