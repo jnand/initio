@@ -20,7 +20,7 @@
             'libyubikey',
             'pinentry-mac',
             'pam_yubico',
-            'yubico-piv-tool    ',
+            'yubico-piv-tool',
             'yubikey-personalization'
           ]
     state: present
