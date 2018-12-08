@@ -14,6 +14,8 @@
   - include_tasks: macos-cli.yml
   - include_tasks: macos-gui.yml
     when: endpoint_type == "desktop"
+  - include_tasks: macos-personal.yml
+    tags: [home, personal]  
   when: distro.macos
 
 
@@ -25,12 +27,6 @@
   - include_tasks: linux-gui.yml
     when: endpoint_type == "desktop"
   when: distro.linux
-
-
-#
-# Role abstractions
-#
-- include_role: name=dropbox
 
 
 #
