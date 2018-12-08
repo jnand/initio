@@ -21,7 +21,9 @@
     - homebrew_cask:
         name: [
                 'keybase',
-                'private-internet-access'
+                'private-internet-access',
+                'signal',
+                'veracrypt'
               ]
         state: present        
   tags: [personal]
