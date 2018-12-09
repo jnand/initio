@@ -42,8 +42,8 @@
 # Common provisioning
 #
   roles:
-    - common
-    - zsh
+    - common #
+    - packages.zsh #
     - gnupg
     - dotfiles
     - secrets
