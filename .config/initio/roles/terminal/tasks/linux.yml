@@ -1,5 +1,0 @@
----
-
-- apt:
-    name: terminator
-    state: present
