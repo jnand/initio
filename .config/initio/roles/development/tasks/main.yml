@@ -36,7 +36,7 @@
       ignore_errors: yes  
       tags: [nobuild, blockblock, bigdl]
     - homebrew_cask:
-        name: 'vmware-fusion',              
+        name: 'vmware-fusion'           
         state: present
       tags: [nobuild, bigdl]
 
