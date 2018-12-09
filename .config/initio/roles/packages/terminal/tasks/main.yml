@@ -1,0 +1,21 @@
+---
+#
+# Repo universe
+#
+- homebrew_tap:
+    name: homebrew/cask
+  when: distro.macos
+
+
+#
+# MacOS
+#
+- include_tasks: macos.yml
+  when: distro.macos
+
+
+#
+# Linux
+#
+- include_tasks: linux.yml
+  when: distro.linux

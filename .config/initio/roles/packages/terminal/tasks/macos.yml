@@ -1,0 +1,33 @@
+---
+
+- homebrew_cask:
+    name: iterm2
+    state: present
+
+- name: Enable automatic updates
+  osx_defaults:
+    domain: com.googlecode.iterm2
+    key: SUEnableAutomaticChecks
+    type: bool
+    value: true
+
+- name: Set custom prefs folder
+  osx_defaults:
+    domain: com.googlecode.iterm2
+    key: PrefsCustomFolder
+    type: string
+    value: "{{ terminal.iterm.prefs }}"
+
+- name: Enable custom prefs folder
+  osx_defaults:
+    domain: com.googlecode.iterm2
+    key: LoadPrefsFromCustomFolder
+    type: bool
+    value: true
+
+- name: Load color profile
+  command: "open {{terminal.iterm.colors}}/{{terminal_color}}.itermcolors"
+  ignore_errors: yes
+  async: 45
+  poll: 0
+  tags: [prompt]

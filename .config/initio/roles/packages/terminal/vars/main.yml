@@ -1,0 +1,8 @@
+---
+
+terminal_color: SolarFlare
+
+terminal:
+  iterm:
+    prefs: "{{xdg.config}}/terminal/iterm"
+    colors: "{{xdg.config}}/terminal/iterm/colors"

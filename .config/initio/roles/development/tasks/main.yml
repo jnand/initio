@@ -35,8 +35,10 @@
       with_items:
         - 497799835 # Xcode
       tags: [nobuild, bigdl]
-    - include_role: name=terminal
-    - include_role: name=sublime-text
+    - include_role: 
+        name: packages/terminal
+    - include_role: 
+        name: packages/sublime-text
     - include_tasks: macos-prefs.yml
   when: distro.macos
   tags: [development]
