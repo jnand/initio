@@ -46,9 +46,9 @@
     - packages/zsh #
     - packages/gnupg #
     - dotfiles #
-    - secrets
-    - mackup
-    - fonts
+    - secrets # Prompt #
+    - mackup #
+    - packages/fonts #
     - security
 
 
