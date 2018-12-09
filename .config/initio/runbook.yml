@@ -44,7 +44,7 @@
   roles:
     - common #
     - packages/zsh #
-    - gnupg
+    - packages/gnupg #
     - dotfiles
     - secrets
     - mackup
