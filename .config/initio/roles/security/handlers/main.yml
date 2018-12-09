@@ -5,7 +5,7 @@
 # MacOS
 #
 
-# - name: macos postflight
+- name: macos postflight
 #   homebrew_cask:
 #     name: blockblock
 #     state: present

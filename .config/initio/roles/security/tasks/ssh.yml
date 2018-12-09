@@ -1,5 +1,8 @@
 ---
 
+#
+# Common
+#
 - name: SSH Authorized Keys
   get_url:
     url: "{{initio.ssh.authorized_keys}}"
@@ -7,6 +10,9 @@
     mode: 0600
   ignore_errors: yes
 
+#
+# Mac OS
+#
 - template:
     src: macos/sshd_config.j2
     dest: /etc/ssh/sshd_config
