@@ -1,0 +1,21 @@
+---
+
+- name: Office & productivity
+  block:
+    - homebrew_cask:
+        name: [
+                'bettertouchtool', 
+                'typora', 
+                'rstudio', 
+                'toggl'
+              ]
+        state: present
+
+    - homebrew_cask:
+        name: [
+                'microsoft-office'
+              ]
+        state: present
+      ignore_errors: yes
+      tags: [bigdl, blockblock]
+  tags: [nobuild]
