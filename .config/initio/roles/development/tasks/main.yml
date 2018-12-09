@@ -34,11 +34,11 @@
         name: 'virtualbox' # cant automate without deactiving SIP which needs a reboot            
         state: present        
       ignore_errors: yes  
-      tags: [nobuild, blockblock]
+      tags: [nobuild, blockblock, bigdl]
     - homebrew_cask:
         name: 'vmware-fusion',              
         state: present
-      tags: [nobuild]
+      tags: [nobuild, bigdl]
 
     #
     # IDEs
@@ -46,12 +46,14 @@
     - homebrew_cask:
         name: 'intellij-idea'
         state: present  
+      tags: [nobuild, bigdl]
     # - homebrew_cask:
     #     name: 'rubymine'
     #     state: present
     - homebrew_cask:
         name: 'pycharm'
         state: present
+      tags: [nobuild, bigdl]
     - name: Xcode
       command: mas install 497799835      
       tags: [nobuild, bigdl]
