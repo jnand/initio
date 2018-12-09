@@ -38,7 +38,11 @@
   ignore_errors: yes
 
 - pause:
-    prompt: Signin to the Apple App Store, then hit return to continue
+    prompt: | 
+      Signin to the Apple App Store, then hit return to continue.
+      Notice: that mas will stall if the applications have not been installed
+      using the apple store signin provided. Apps need to have been installed 
+      at least once to be pickedup by mas.
   when: not (app_store_sigin.stdout is match("@"))
   tags: [nobuild, prompt]
 
@@ -58,9 +62,11 @@
 
 - name: Unfi controller
   homebrew_cask:
-    name: 'ubiquiti-unifi-controller'
+    name: ['ubiquiti-unifi-controller']
     state: present
+  ignore_errors: yes
   tags: [home, personal]
+
 
 - name: Media apps
   homebrew_cask:
