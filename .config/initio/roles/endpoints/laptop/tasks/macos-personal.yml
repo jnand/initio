@@ -6,6 +6,7 @@
       command: mas install 585829637
     - name: Position Todoist in Dock
       command: dockutil --add /Applications/Todoist.app --after 'Calendar'
+      ignore_errors: yes
   tags: [nobuild, home, personal]
 
 - command: mas install {{item}}
