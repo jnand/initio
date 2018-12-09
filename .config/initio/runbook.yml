@@ -45,7 +45,7 @@
     - common #
     - packages/zsh #
     - packages/gnupg #
-    - dotfiles
+    - dotfiles #
     - secrets
     - mackup
     - fonts
