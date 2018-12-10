@@ -1,0 +1,47 @@
+---
+
+- name: Todoist
+  block:
+    - name: Install Todoist
+      command: mas install 585829637
+    - name: Position Todoist in Dock
+      command: dockutil --add /Applications/Todoist.app --after 'Calendar'
+      ignore_errors: yes
+  tags: [nobuild, home, personal]
+
+- command: mas install {{item}}
+  with_items:
+    - 1160374471 # PiPifier
+    - 1055511498 # Day One
+  tags: [nobuild, home, personal]
+
+- name: Unfi controller
+  homebrew_cask:
+    name: ['ubiquiti-unifi-controller']
+    state: present
+  ignore_errors: yes
+  tags: [home, personal]
+
+
+- name: Media apps
+  homebrew_cask:
+    name: [
+            'transmission',            
+            'backblaze',
+            'hermes',
+            'plex-media-player',
+            'musicbrainz-picard',
+            'marshallofsound-google-play-music-player'
+          ]
+    state: present
+  tags: [home, personal]
+  
+
+- name: Samsung SSD Encryption
+  block:
+    - get_url:
+        url: http://downloadcenter.samsung.com/content/SW/201710/20171030152312901/T3_Security_Enabler_for_Mac.pkg
+        dest: "{{user_home}}/Downloads/samsung-t3-installer.pkg"
+    - command: "installer -pkg {{user_home}}/Downloads/samsung-t3-installer.pkg -target /"
+      become: true
+  tags: [prompt, nobuild, personal]

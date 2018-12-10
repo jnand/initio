@@ -4,54 +4,59 @@
   become: yes
   
 #
-# Software
+# Common Software
 #
 - homebrew_cask:
-    name: "{{item}}"
+    name: [
+            'dhs', 
+            'gpg-suite', 
+            'kextviewr', 
+            'knockknock', 
+            'taskexplorer'
+          ]
     state: present
-  with_items:
-    - dhs
-    - gpg-suite
-    - kextviewr
-    - knockknock
-    - taskexplorer
-    - whatsyoursign  
-
-- name: Personal security tools
-  block:
-    - homebrew_cask:
-        name: "{{item}}"
-        state: present
-      with_items:
-        - keybase
-        - private-internet-access
-  tags: [personal]
-
 
 - name: Desktop security tools
   block:
     - homebrew_cask:
-        name: "{{item}}"
+        name: [
+                'little-snitch',
+                'micro-snitch',
+                #- blockblock  # see preflight handlers',
+                'dnscrypt',
+                'keepassxc'
+              ]
         state: present
-      with_items:
-        - little-snitch
-        - micro-snitch
-        - cryptomator
-        # - blockblock  # see preflight handlers
-        - dnscrypt
-        - keepassxc
   when: endpoint_type == "desktop"
-
 
 - name: Pf GUI manager
   block:
     - homebrew_cask:
-        name: "{{item}}"
+        name: [
+                'murus',
+                'murus-menulet'
+        ]
         state: present
-      with_items:
-        - murus
-        - murus-menulet
   when: endpoint_type == "console"
+
+
+
+#
+# Personal Software
+#
+- name: Personal security tools
+  block:
+    - homebrew_cask:
+        name: [
+                'keybase',
+                # 'private-internet-access',
+                'signal',
+                'veracrypt',
+                'cryptomator'
+              ]
+        state: present        
+  tags: [personal]
+
 
 
 #
@@ -107,13 +112,14 @@
     type: bool
     value: true
 
-- name: Disable captive portal
-  osx_defaults:
-    domain: com.apple.captive.control
-    key: Active
-    type: bool
-    value: false
-  become: true
+# Leave captive portal for airports, be wise when conencting.
+# - name: Disable captive portal
+#   osx_defaults:
+#     domain: com.apple.captive.control
+#     key: Active
+#     type: bool
+#     value: false
+#   become: true
   
 
 #

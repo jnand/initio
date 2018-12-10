@@ -14,6 +14,8 @@
   - include_tasks: macos-cli.yml
   - include_tasks: macos-gui.yml
     when: endpoint_type == "desktop"
+  - include_tasks: macos-personal.yml
+    tags: [home, personal]  
   when: distro.macos
 
 
@@ -28,16 +30,10 @@
 
 
 #
-# Role abstractions
-#
-- include_role: name=dropbox
-
-
-#
 # Python
 #
 - pip:
-    requirements: "'{{role_path}}/files/python3-requirements.txt'"
+    requirements: "{{role_path}}/files/python3-requirements.txt"
     executable: pip3
 
 

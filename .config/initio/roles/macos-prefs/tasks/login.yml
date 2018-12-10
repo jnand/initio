@@ -1,0 +1,13 @@
+---
+
+# see: https://github.com/OJFord/loginitems
+# example: $ loginitems-add name path hide
+- name: Set login items
+  shell: >
+    {{initio.bin}}/loginitems-add {{item.key}} /Applications/{{item.key}}.app {{item.value}}
+  with_dict:
+    Dropbox: false
+    iTerm: false
+    BetterTouchTool: false
+    Qbserve: false
+  tags: [home, personal]

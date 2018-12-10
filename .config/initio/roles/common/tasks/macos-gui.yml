@@ -5,23 +5,18 @@
   become: yes
 
 - homebrew:
-    name: "{{item}}"
+    name: ['dockutil']
     state: present
-  with_items:
-    - dockutil
 
 - homebrew_cask:
-    name: "{{item}}"
-    state: present
-  with_items:
-    - disk-inventory-x
-    - firefox
-    - google-chrome
-    - keka
-    - keybase
-    - signal
-    - veracrypt
-    - vlc
+    name: [
+            'disk-inventory-x',
+            'firefox',
+            'google-chrome',
+            'keka',
+            'vlc'
+          ]
+    state: present  
   ignore_errors: yes
 
 - name: GPG Suite
@@ -30,7 +25,7 @@
       command: "echo none"
       become: yes
     - homebrew_cask:
-        name: "{{item}}"
+        name: [
+                'gpg-suite'
+              ]
         state: present
-      with_items:
-        - gpg-suite

@@ -14,25 +14,26 @@
     name: homebrew/cask-drivers
 
 - homebrew:
-    name: "{{item}}"
+    name: [
+            'ykman',
+            'ykpers',
+            'libyubikey',
+            'pinentry-mac',
+            'pam_yubico',
+            'yubico-piv-tool',
+            'yubikey-personalization'
+          ]
     state: present
-  with_items:
-    - ykman
-    - ykpers
-    - libyubikey
-    - pinentry-mac
-    - pam_yubico
-    - yubico-piv-tool    
-    - yubikey-personalization
 
 - homebrew_cask:
-    name: "{{item}}"
+    name: [
+            'yubico-authenticator',
+            'yubico-yubikey-manager',
+            'yubico-yubikey-piv-manager',
+            'yubico-yubikey-personalization-gui'
+          ]
     state: present
-  with_items:
-    - yubico-authenticator
-    - yubico-yubikey-manager
-    - yubico-yubikey-piv-manager
-    - yubico-yubikey-personalization-gui
+    
 
 #
 # Load saved Yubico secrets

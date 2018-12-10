@@ -1,0 +1,5 @@
+---
+
+- name: Install dropbox file sync client
+  include_role: 
+    name: packages/dropbox

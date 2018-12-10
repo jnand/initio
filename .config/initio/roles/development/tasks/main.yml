@@ -6,38 +6,65 @@
 - name: Development tools
   block:    
     - homebrew_cask:
-        name: "{{item}}"
+        name: 'gitkraken'
         state: present
-      with_items:
-        - gitkraken
-        - vagrant
-        - vagrant-manager
-        - kitematic
-    - homebrew_cask: 
-        name: "{{item}}"
-        state: present
-      with_items:
-        - wireshark
-        - docker  
-        - postgres
-        - virtualbox # cant automate without deactiving SIP which needs a reboot
-      ignore_errors: yes  
-      tags: [blockblock]
     - homebrew_cask:
-        name: "{{item}}"
+        name: 'vagrant'
         state: present
-      with_items:
-        - rubymine
-        - pycharm
-        - vmware-fusion
-      tags: [nobuild]
-    - command: mas install {{item}}
-      with_items:
-        - 497799835 # Xcode
+    - homebrew_cask:
+        name: 'vagrant-manager'
+        state: present
+    - homebrew_cask:
+        name: 'kitematic'
+        state: present
+    - homebrew_cask:
+        name: 'wireshark'
+        state: present
+    - homebrew_cask:
+        name: 'docker'
+        state: present
+    - homebrew_cask:
+        name: postgres
+        state: present
+
+    #
+    # Virtualization
+    #
+    - homebrew_cask: 
+        name: 'virtualbox' # cant automate without deactiving SIP which needs a reboot            
+        state: present        
+      ignore_errors: yes  
+      tags: [nobuild, blockblock, bigdl]
+    - homebrew_cask:
+        name: 'vmware-fusion'           
+        state: present
       tags: [nobuild, bigdl]
-    - include_role: name=terminal
-    - include_role: name=sublime-text
+
+    #
+    # IDEs
+    #
+    - homebrew_cask:
+        name: 'intellij-idea'
+        state: present  
+      tags: [nobuild, bigdl]
+    # - homebrew_cask:
+    #     name: 'rubymine'
+    #     state: present
+    - homebrew_cask:
+        name: 'pycharm'
+        state: present
+      tags: [nobuild, bigdl]
+    - name: Xcode
+      command: mas install 497799835      
+      tags: [nobuild, bigdl]
+    
+    
+    - include_role: 
+        name: packages/terminal
+    - include_role: 
+        name: packages/sublime-text
     - include_tasks: macos-prefs.yml
+
   when: distro.macos
   tags: [development]
 

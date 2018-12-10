@@ -6,6 +6,7 @@
 #
 
 - name: macos postflight
-  homebrew_cask:
-    name: blockblock
-    state: present
+  debug: msg="Blockblock no longer included by default."
+#   homebrew_cask:
+#     name: blockblock
+#     state: present

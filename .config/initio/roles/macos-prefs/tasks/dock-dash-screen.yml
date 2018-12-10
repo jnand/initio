@@ -1,4 +1,37 @@
 ---
+
+#
+# Setup Dock
+#
+- name: Wipe all (default) app icons from the Dock
+  osx_defaults:
+    domain: com.apple.dock
+    key: persistent-apps
+    type: array
+    value: []
+
+# see: https://github.com/kcrawford/dockutil
+- name: Setup Dock
+  command: dockutil --add '/Applications/{{item}}.app'
+  with_items:
+    - Launchpad
+    - Safari
+    - Firefox
+    - Google Chrome
+    - Calendar
+    # - Todoist
+    - Reminders
+    - iTerm
+
+# Uses macbuilds launcpad helper script
+# see: https://github.com/fgimian/macbuild/blob/master/extras/launchpad.py
+# example: ./extras/launchpad.py build host_vars/localhost/launchpad.yaml
+- name: Organize launchpad
+  shell: ~/.local/lib/initio/launchpad.py build ~/.config/initio/roles/macos-prefs/files/launchpad.yml
+  tags: [home, personal]
+
+
+
 #
 # Dock, Dashboard, and hot corners
 #

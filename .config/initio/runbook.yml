@@ -42,14 +42,14 @@
 # Common provisioning
 #
   roles:
-    - common
-    - zsh
-    - gnupg
-    - dotfiles
-    - secrets
-    - mackup
-    - fonts
-    - security
+    - common #
+    - packages/zsh #
+    - packages/gnupg #
+    - dotfiles #
+    - secrets # Prompt #
+    - mackup #
+    - packages/fonts #
+    - security #
 
 
 #
@@ -58,7 +58,8 @@
 # hack: workaround until ansible fixes include_role name eval
 # see: https://github.com/ansible/ansible/pull/33386
   tasks:
-    - include_role: name=laptop
+    - include_role: 
+        name: endpoints/laptop
       when: endpoint == "laptop"
 
 
