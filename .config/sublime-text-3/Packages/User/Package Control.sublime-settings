@@ -6,7 +6,6 @@
 	"installed_packages":
 	[
 		"AutoFileName",
-		"Boxy Theme",
 		"BracketHighlighter",
 		"ExportHtml",
 		"GenerateUUID",
@@ -18,6 +17,6 @@
 		"SerializedDataConverter",
 		"SideBarEnhancements",
 		"SublimeCodeIntel",
-		"Terminal"
+		"Terminal",
 	]
 }
