@@ -20,3 +20,6 @@ source "$XDG_CONFIG_HOME/zsh/zshenv"
 
 # Python helpers
 [[ -e /usr/local/bin/virtualenvwrapper.sh ]] && source /usr/local/bin/virtualenvwrapper.sh
+
+# Homebrew path
+export PATH=/usr/local/bin:$PATH
